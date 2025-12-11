@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="binary.ico" type="image/x-icon">
+    <title>Number System Converter</title>
+    <style>
+        body {
+            background-color: whitesmoke;
+            color: #1e3a8a;
+            font-family: monospace;
+            text-align: center;
+            padding: 20px;
+        }
+    
+        h1 {
+            font-size: 30px;
+            margin-bottom: 35px;
+            color: #1e3a8a;
+        }
+    
+        .converter {
+            max-width: 500px;
+            padding: 30px;
+            border: 1px solid #ccc;
+            border-radius: 12px;
+            background-color: #ffffff;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+    
+        label {
+            display: block;
+            margin-top: 20px;
+            font-size: 22px;
+            color: #333;
+            text-align: left;
+        }
+    
+        input {
+            width: 90%;
+            padding: 12px;
+            margin-top: 5px;
+            font-size: 18px;
+            background: #f4f6f8;
+            color: #333;
+            border: 1px solid #bbb;
+            outline: none;
+            text-align: center;
+            border-radius: 8px;
+            transition: 0.3s ease;
+        }
+    
+        input:focus {
+            box-shadow: 0 0 8px #5dade2;
+            border-color: #5dade2;
+        }
+    
+        .buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+            gap: 10px;
+        }
+    
+        button {
+            flex: 1;
+            padding: 12px;
+            font-size: 16px;
+            background-color: #1e3a8a;
+            color: #ffffff;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+    
+        button:hover {
+            background-color: #2e59d9;
+            transform: scale(1.03);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+    
+        .output {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #f0f0f0;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: x-large;
+            color: #2e3e4e;
+        }
+    
+        .how-it-works {
+            padding: 25px;
+            background: #f9f9fb;
+            border: 1px solid #dcdcdc;
+            border-radius: 10px;
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+            text-align: center;
+            width: 400px;
+            color: #2e3e4e;
+        }
+        .how-it-works p 
+        {
+        font-size: 20px !important;
+        }
+
+    
+        .how-it-works h2 {
+            font-size: 28px;
+            color: #1e3a8a;
+            margin-bottom: 10px;
+        }
+    
+        .how-it-works ol {
+            text-align: left;
+            display: inline-block;
+            margin-top: 15px;
+        }
+    
+        .how-it-works li {
+            font-size: 18px;
+            margin: 10px 0;
+        }
+    
+        .content {
+            display: flex;
+            flex-direction: row;
+            margin-left: 250px;
+            margin-top: 100px;
+            gap: 100px;
+        }
+    
+        @media (max-width: 768px) {
+            .content {
+                flex-direction: column;
+                align-items: center;
+                margin-left: 0;
+                gap: 50px;
+            }
+    
+            .converter,
+            .how-it-works {
+                width: 90%;
+            }
+        }
+    </style>
+    
+</head>
+<body>
+
+
+<div class="content">
+    <div class="converter">
+        <h1>Number System Converter</h1>
+        <label>Enter a Number:</label>
+        <input type="text" id="numberInput">
+
+        <label>Select Conversion Type:</label>
+        <div class="buttons">
+            <button onclick="convertNumber('decimal')">To Decimal</button>
+            <button onclick="convertNumber('binary')">To Binary</button>
+        </div>
+        <div class="buttons">
+            <button onclick="convertNumber('octal')">To Octal</button>
+            <button onclick="convertNumber('hexadecimal')">To Hex</button>
+        </div>
+
+        <div class="output">
+            <p><strong>Converted Value:</strong></p>
+            <p id="result">---</p>
+        </div>
+    </div>
+    <section class="how-it-works">
+        <h2>How to Use the Number System Converter</h2>
+        <p>Follow these simple steps to convert between different number systems:</p>
+        
+        <ol>
+            <li>Enter the number you want to convert in the input field.</li>
+            <li>Select the number system of the input (Binary, Decimal, Octal, Hexadecimal).</li>
+            <li>Choose the number system you want to convert to.</li>
+            <li>Click the "Convert" button to see the result.</li>
+            <li>The converted number will be displayed instantly.</li>
+        </ol>
+    </section>
+    
+</div>
+
+    <script>
+        function convertNumber(type) {
+            let input = document.getElementById("numberInput").value.trim();
+            let result = document.getElementById("result");
+
+            if (input === "") {
+                result.innerHTML = "Please enter a number.";
+                return;
+            }
+
+            let decimalValue;
+            if (/^[01]+$/.test(input))
+             { 
+                decimalValue = parseInt(input, 2);
+            } else if (/^[0-7]+$/.test(input)) 
+            {
+                decimalValue = parseInt(input, 8);
+            } else if (/^[0-9A-Fa-f]+$/.test(input)) 
+            {
+                decimalValue = parseInt(input, 16);
+            } else if (!isNaN(input)) 
+            {
+                decimalValue = parseInt(input, 10);
+            } else
+             {
+                result.innerHTML = "Invalid input!";
+                return;
+            }
+
+            switch (type) {
+                case "decimal":
+                    result.innerHTML = decimalValue;
+                    break;
+                case "binary":
+                    result.innerHTML = decimalValue.toString(2);
+                    break;
+                case "octal":
+                    result.innerHTML = decimalValue.toString(8);
+                    break;
+                case "hexadecimal":
+                    result.innerHTML = decimalValue.toString(16).toUpperCase();
+                    break;
+                default:
+                    result.innerHTML = "Invalid conversion!";
+            }
+        }
+    </script>
+
+</body>
+</html>

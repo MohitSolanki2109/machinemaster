@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Binary-Text Converter</title>
+    <link rel="shortcut icon" href="text-binary.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="converter.ico" type="image/x-icon">
+    <style>
+        body {
+            font-family: monospace;
+            text-align: center;
+            font-size: x-large;
+            margin: 100px;
+            background: whitesmoke;
+            color: #1e3a8a;
+        }
+    
+        .content {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            gap: 50px;
+        }
+    
+        .converter {
+            background: #ffffff;
+            padding: 30px;
+            border: 1px solid #ccc;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            width: 550px;
+        }
+    
+        input, select, button {
+            font-size: 22px;
+            padding: 12px;
+            margin: 15px;
+            background-color: #f4f6f8;
+            color: #333;
+            border: 1px solid #bbb;
+            border-radius: 10px;
+            transition: box-shadow 0.3s ease, transform 0.2s ease;
+        }
+    
+        input:focus, select:focus, button:hover {
+            box-shadow: 0 0 10px #5dade2;
+            outline: none;
+            transform: scale(1.02);
+        }
+    
+        #output {
+            font-size: 25px;
+            font-weight: bold;
+            color: #1abc9c;
+            margin-top: 15px;
+        }
+    
+        .how-it-works {
+            padding: 25px;
+            background: #f9f9fb;
+            border: 1px solid #dcdcdc;
+            border-radius: 10px;
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+            text-align: center;
+            width: 550px;
+            color: #2e3e4e;
+        }
+    
+        .how-it-works h2 {
+            font-size: 28px;
+            color: #1e3a8a;
+            margin-bottom: 10px;
+        }
+    
+        .how-it-works ol {
+            text-align: left;
+            display: inline-block;
+            margin-top: 15px;
+        }
+    
+        .how-it-works li {
+            font-size: 18px;
+            margin: 10px 0;
+        }
+    
+        @media (max-width: 768px) {
+            .content {
+                flex-direction: column;
+                align-items: center;
+            }
+    
+            .converter, .how-it-works {
+                width: 90%;
+                margin-top: 20px;
+            }
+        }
+    </style>
+    
+</head>
+<body>
+
+    <h1>Binary ↔ Text Converter</h1>
+
+    <div class="content">
+        <!-- Left: Converter -->
+        <div class="converter">
+            <h2>Convert Binary & Text</h2>
+            <select id="conversionType">
+                <option value="binaryToText">Binary to Text</option>
+                <option value="textToBinary">Text to Binary</option>
+            </select>
+            <input type="text" id="inputData" placeholder="Enter text or binary...">
+            <button onclick="convert()">Convert</button>
+            <p id="output"></p>
+        </div>
+
+        <!-- Right: How It Works -->
+        <div class="how-it-works">
+            <h2>How to Use the Converter</h2>
+            <p>Follow these simple steps:</p>
+            <ol>
+                <li>Select "Binary to Text" or "Text to Binary".</li>
+                <li>Enter your input in the text field.</li>
+                <li>Click the "Convert" button.</li>
+                <li>See the result instantly below.</li>
+            </ol>
+        </div>
+    </div>
+
+    <script>
+        function convert() {
+            let conversionType = document.getElementById("conversionType").value;
+            let inputData = document.getElementById("inputData").value.trim();
+            let output = "";
+
+            if (conversionType === "binaryToText") {
+                if (!/^[01 ]+$/.test(inputData)) {
+                    alert("Invalid Binary Input!");
+                    return;
+                }
+                output = binaryToText(inputData);
+            } else {
+                output = textToBinary(inputData);
+            }
+
+            document.getElementById("output").textContent = `Result: ${output}`;
+        }
+
+        function binaryToText(binary) {
+            return binary.split(" ").map(bin => String.fromCharCode(parseInt(bin, 2))).join("");
+        }
+
+        function textToBinary(text) {
+            return text.split("").map(char => char.charCodeAt(0).toString(2)).join(" ");
+        }
+    </script>
+
+</body>
+</html>

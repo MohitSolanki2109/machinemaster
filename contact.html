@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="shortcut icon" href="contact.ico" type="image/x-icon">
+  <title>Contact Form</title>
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+  <style>
+    body {
+      font-family: monospace;
+      text-align: center;
+      font-size: x-large;
+      margin: 20px;
+      background: whitesmoke;
+      color: #1e3a8a;
+    }
+
+    .contact-form {
+      background: #ffffff;
+      padding: 30px;
+      border: 1px solid #ccc;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      display: flex;
+      flex-direction: column;
+      max-width: 90%;
+      width: 500px;
+      margin: 0 auto;
+    }
+
+    input, textarea {
+      font-size: 22px;
+      padding: 12px;
+      margin: 15px;
+      background-color: #f4f6f8;
+      color: #333;
+      border: 1px solid #bbb;
+      border-radius: 10px;
+      transition: box-shadow 0.3s ease, transform 0.2s ease;
+    }
+    button
+    {
+      font-size: 22px;
+      padding: 12px;
+      margin: 15px;
+      background-color: #1e3a8a;
+      color: #ffffff;
+      border: 1px solid #bbb;
+      border-radius: 10px;
+      transition: box-shadow 0.3s ease, transform 0.2s ease;
+    }
+
+    input:focus, textarea:focus, button:hover {
+      box-shadow: 0 0 10px #5dade2;
+      outline: none;
+      transform: scale(1.02);
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    .contact-message {
+      font-size: 25px;
+      font-weight: bold;
+      color: #1abc9c;
+      margin-top: 15px;
+    }
+
+    @media (max-width: 500px) {
+      body {
+        font-size: large;
+      }
+
+      input, textarea, button {
+        font-size: 18px;
+      }
+
+      .contact-message {
+        font-size: 20px;
+      }
+    }
+  </style>
+
+</head>
+<body>
+
+  <h1>Contact Us</h1>
+
+  <form class="contact-form" id="contactForm">
+    <input type="text" id="name" name="user_name" placeholder="Your Name" required />
+    <input type="email" id="email" name="user_email" placeholder="Your Email" required />
+    <textarea id="message" name="message" rows="5" placeholder="Your Message" required></textarea>
+    <button type="submit">Send Message</button>
+    <div id="responseMessage"></div>
+  </form>
+
+ <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+ <script>
+  // Initialize EmailJS with your Public Key
+  emailjs.init("qdeh1ugCCWZyU9VtJ");
+
+  // Attach form submit handler
+  document.getElementById("contactForm").addEventListener("submit", function (e) {
+    e.preventDefault(); // Prevent page reload
+
+    const name = document.getElementById("name").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const message = document.getElementById("message").value.trim();
+    const result = document.getElementById("responseMessage"); // Fixed ID name
+
+    if (!name || !email || !message) {
+      result.textContent = "Please fill in all fields!";
+      result.style.color = "red";
+      return;
+    }
+
+    const templateParams = {
+      from_name: name,
+      from_email: email,
+      message: message
+    };
+
+    emailjs.send("service_w5whg8r", "template_4qvuws7", templateParams)
+      .then(() => {
+        result.textContent = `Thanks, ${name}! Your message has been sent.`;
+        result.style.color = "#1abc9c";
+        document.getElementById("name").value = "";
+        document.getElementById("email").value = "";
+        document.getElementById("message").value = "";
+      })
+      .catch((error) => {
+        console.error("EmailJS Error:", error);
+        result.textContent = "Oops! Something went wrong.";
+        result.style.color = "red";
+      });
+  });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About Us | Machine Master</title>
+  <link rel="shortcut icon" href="machin.ico" type="image/x-icon"/>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <style>
+    body {
+      background-color: #f9f9f9;
+      font-family: 'Times New Roman', Times, serif;
+      color: #1e3a8a;
+    }
+
+    /* Navigation */
+    nav {
+      width: 100%;
+      padding: 15px 40px;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      font-family: 'Times New Roman', Times, serif;
+      color: #1e3a8a;
+    }
+
+    .nav-link {
+      margin-left: 20px;
+     color: #1e3a8a;
+      font-size: 18px;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .nav-link:hover {
+      color: #82a1f9 !important;
+    }
+
+    /* Section Headers */
+    .section-title {
+      font-family: 'Times New Roman', serif;
+      font-size: 36px;
+      text-align: center;
+      margin-top: 40px;
+      margin-bottom: 30px;
+      color: #1a1a1a;
+    }
+
+    /* Profile Section */
+    .profile-section {
+      padding: 40px 20px;
+    }
+
+    .profile-image {
+      width: 100%;
+      max-width: 250px;
+      border-radius: 50%;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .profile-info {
+      font-size: 18px;
+      font-family: 'Times New Roman', Times, serif;
+      text-align: justify;
+    }
+
+    /* Summary Section */
+    .summary-section {
+      padding: 40px 20px;
+    }
+
+    .summary-text {
+      font-size: 18px;
+      text-align: justify;
+    }
+
+    /* Footer */
+    .site-footer {
+      background-color: #1e3a8a;
+      color: #ffffff;
+      padding: 40px 20px;
+      font-family: 'Times New Roman', Times, serif;
+      margin-top: 60px;
+    }
+
+    .footer-content {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 20px;
+      max-width: 1000px;
+      margin: 0 auto;
+      text-align: left;
+    }
+
+    .footer-left h3 {
+      font-size: 24px;
+      margin-bottom: 8px;
+    }
+
+    .footer-links,
+    .footer-social {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .footer-links a,
+    .footer-social a {
+      text-decoration: none;
+      color: #ffffff;
+      font-size: 18px;
+      transition: color 0.2s ease;
+    }
+
+    .footer-links a:hover,
+    .footer-social a:hover {
+      color: #bcd4ff;
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        flex-direction: column;
+        align-items: flex-end;
+      }
+
+      .footer-content {
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+      }
+
+      .profile-section .row {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .profile-info {
+        margin-top: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav>
+  <a class="nav-link" href="index.html">Home</a>
+  <a class="nav-link" href="services.html">Services</a>
+  <a class="nav-link" href="contact.html">Contact</a>
+  <a class="nav-link" href="aboutus.html">About</a>
+</nav>
+
+<!-- Profile Section -->
+<h1 class="section-title">About Me</h1>
+<section class="container profile-section">
+  <div class="row align-items-center">
+    <div class="col-md-4 text-center">
+      <img src="myphoto.jpg" alt="Your Image" class="profile-image">
+    </div>
+    <div class="col-md-8 profile-info">
+      <p>
+        Hello! I'm the creator behind <strong>Machine Master</strong>, a passionate developer and enthusiast in computer science and digital systems. I’ve always been fascinated by how computers operate at their most fundamental levels—from binary numbers to logic gates and digital conversions.
+      </p>
+      <p>
+        My goal in building this site was to make learning technical concepts more intuitive, visual, and fun. I believe that when students and curious minds can see how things work, they retain knowledge better and enjoy the journey. This website reflects years of study, practice, and the desire to share learning tools that I wish I had when I first started.
+      </p>
+      <p>
+        Outside of development, I enjoy solving puzzles, reading about technology trends, and helping others learn programming. Machine Master is my way of giving back to the learning community. I hope it helps you as much as it helped me build it!
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- Summary Section -->
+<h1 class="section-title">About Machine Master</h1>
+<section class="container summary-section">
+  <div class="summary-text">
+    <p>
+      Machine Master is your digital learning partner for understanding the fundamentals of binary mathematics, number system conversions, and digital logic gates. In today's tech-driven world, understanding how machines think—especially at the binary level—is a valuable skill. This site offers interactive tools that allow users to explore, calculate, and convert without hassle or confusion.
+    </p>
+    <p>
+      The platform was designed for students, educators, and anyone interested in digital electronics or computing. Our Binary Calculator enables arithmetic in binary format, while the Number Converter helps you quickly switch between binary, decimal, octal, and hexadecimal formats. These tools are vital for computer science students and professionals working in low-level programming, embedded systems, or network configuration.
+    </p>
+    <p>
+      One of the standout features of Machine Master is the Logic Gate Visualizer. Users can interactively explore how AND, OR, NOT, NAND, NOR, XOR, and XNOR gates behave with different input combinations. This helps reinforce the learning of truth tables and Boolean logic, which are foundational in designing circuits and understanding processor architecture.
+    </p>
+    <p>
+      The Binary-to-Text Converter adds a practical touch to your learning. It demonstrates how textual information can be represented as binary code, offering insights into encoding standards like ASCII. This helps bridge the gap between abstract binary data and real-world text processing.
+    </p>
+    <p>
+      The website is designed with a clean UI, responsive layout, and minimal distractions. Whether you are using it on a desktop, tablet, or smartphone, your experience will remain seamless. Each module is tested for accuracy and optimized for quick interaction, ensuring your calculations and visualizations are both efficient and correct.
+    </p>
+    <p>
+      In essence, Machine Master is more than just a toolkit—it's an educational initiative aimed at making technical learning accessible and engaging. As technology continues to evolve, understanding the basics will remain crucial. Machine Master is here to support you on that path, one bit at a time.
+    </p>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="site-footer">
+  <div class="footer-content">
+    <div class="footer-left">
+      <h3>Machine Master</h3>
+      <p>&copy; 2025 All rights reserved.</p>
+    </div>
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="aboutus.html">About Us</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <div class="footer-social">
+      <a href="https://www.linkedin.com/in/mohit-solanki-794521306?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank">🔗 LinkedIn</a>
+      <a href="https://www.instagram.com/meetttt__25?igsh=MWNzd25iOWxsYjMwZw==" target="_blank">📸 Instagram</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

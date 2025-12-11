@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <script src="bootstrap/jquery/jquery.min.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <title>Services</title>
+    <link rel="shortcut icon" href="services.ico" type="image/x-icon">
+    <style>
+        body {
+            font-family: 'monospace';
+            background-color: whitesmoke;
+            color: #1f2937;
+            margin: 90px;
+            font-size: x-large;
+        }
+    
+        nav {
+            margin-top: 30px;
+            background: #1e3a8a;
+            height: 60px;
+            border-radius: 30px;
+            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+        }
+    
+        .menu-list {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            padding: 15px;
+            margin: 0;
+        }
+    
+        .menu-list li {
+            margin: 0 80px;
+        }
+    
+        .menu-list a {
+            text-decoration: none;
+            color: white;
+            font-size: 22px;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+    
+        .menu-list a:hover {
+            color: #bcd4ff;
+            text-shadow: 0px 2px 8px rgba(0, 0, 0, 0.2);
+            transform: scale(1.1);
+        }
+    
+        .container {
+            width: 500px;
+            font-size: large;
+            background: white;
+            border: 1px solid #d1d5db;
+            box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.1);
+            border-radius: 20px;
+            box-sizing: border-box;
+            padding: 25px;
+            text-align: left;
+            margin-top: 50px;
+            color: #374151;
+        }
+    
+        .content {
+            display: flex;
+            flex-direction: row;
+            gap: 100px;
+            margin-left: 70px;
+            flex-wrap: wrap;
+        }
+    
+        a {
+            color: #2563eb;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+    
+        a:hover {
+            color: #1d4ed8;
+        }
+        .site-footer {
+            background-color: #1e3a8a;
+        color: #ffffff;
+        padding: 40px 20px;
+        font-family: 'Times New Roman', Times, serif;
+        margin-top: 60px;
+        margin-bottom: 0px;
+    }
+
+    .footer-content {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 20px;
+      max-width: 1000px;
+      margin: 0 auto;
+      text-align: left;
+    }
+
+    .footer-left h3 {
+      font-size: 24px;
+      margin-bottom: 8px;
+    }
+
+    .footer-links,
+    .footer-social {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .footer-links a,
+    .footer-social a {
+      text-decoration: none;
+      color: #ffffff;
+      font-size: 18px;
+      transition: color 0.2s ease;
+    }
+
+    .footer-links a:hover,
+    .footer-social a:hover {
+      color: #bcd4ff;
+    }
+
+    
+        @media (max-width: 768px) {
+            .content {
+                flex-direction: column;
+                align-items: center;
+                margin-left: 0;
+            }
+    
+            .container {
+                width: 90%;
+            }
+            .footer-content {
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+      }
+
+            .menu-list {
+                flex-direction: column;
+                gap: 10px;
+            }
+    
+            .menu-list li {
+                margin: 10px 0;
+            }
+        }
+    </style>
+    
+</head>
+<body class="container-fluid">
+    <h1 align="center">Welcome To Machine Master</h1>
+    <nav>
+        <ul class="menu-list">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="aboutus.html">About</a></li>
+        </ul>
+    </nav>
+    <div class="content">
+    <div class="container container-fluid">
+        <dl>1️⃣ Binary Calculator</dl>
+            <dd>💡 Perform Binary Arithmetic with Ease!</dd>
+
+        <p>Enter two binary numbers and perform addition, subtraction, multiplication, and division just like in a regular calculator.Supports bitwise operations for advanced calculations. Useful for computer science students, digital electronics, and programming applications.</p>
+        <ul type="square">   
+            🔹 Features:
+            <li>✅ Live calculation preview.</li>
+            <li>✅ Step-by-step breakdown of operations.</li>
+            <li>✅ Option to display results in decimal, octal, or hexadecimal.</li><br>
+            <li><a href="bin.calc.html">Click here to open Calculator</a></li>
+        </ul>
+        
+    </div>
+    <div class="container">
+        <dl>2️⃣ Number System Converter</dl>
+            <dd>🔄 Convert Between Number Systems Instantly!</dd>
+
+        <p>Quickly convert numbers between:<br></p>
+            <ul type="none"> 
+                <li>🔹 Binary (2) → Used in computing and digital systems.</li>
+                <li>🔹 Decimal (10) → Our standard number system.</li>
+                <li>🔹 Octal (8) → Compact representation used in programming.</li>
+                <li>🔹 Hexadecimal (16) → Common in memory addressing & color codes.</li>
+                </ul> 
+                <ul type="square">  
+            <li>🔹 Features:</li>
+            <li>✅ Instant conversion for any input</li>
+            <li>✅ Supports negative numbers and floating-point conversions.</li>
+            <li>✅ Copy or share results easily.</li><br> 
+            <li><a href="converter.html">Click here to open Converter</a></li>
+        </ul>
+    </div>
+    </div>
+    <div class="content">
+        <div class="container">
+            <dl>3️⃣ Binary to Text & Text to Binary</dl>
+                <dd>📝 Convert Messages to Binary and Back!</dd>
+    
+            <p>Encode any text or message into binary and decode binary sequences back into text.</p><br>
+            <p>Useful for encryption, learning binary communication, and understanding ASCII encoding.</p>
+            <ul type="square">   
+                🔹 Features:
+                <li>✅ Supports uppercase, lowercase, numbers, and special symbols..</li>
+                <li>✅ Option to view encoding in 8-bit or 16-bit representation.</li>
+                <li>✅ Real-time conversion with a clear, easy-to-read interface.</li><br>
+                <li><a href="BinToText.html">Click here to open Converter</a></li>
+            </ul>
+        </div>
+        <div class="container">
+            <dl>4️⃣ Logic Gate Simulator</dl>
+                <dd>🔌 Build and Visualize Logic Circuits!</dd>
+    
+            <p>Enter a Boolean expression or logic statement to generate a real-time logic circuit using gates like:<br>
+                🔹 AND (.), OR (+), NOT (¬), XOR, NAND, NOR.</p>
+                <p>Perfect for electronics students, digital circuit designers, and programmers.</p>
+            <ul type="square">  
+                <li>🔹 Features:</li>
+                <li>✅ Interactive drag-and-drop logic gate simulator.</li>
+                <li>✅ Live preview of circuit diagrams.</li>
+                <li>✅ Option to export as an image or circuit file.</li><br>
+                <li><a href="logic-gate.html">Click here to open Visualize</a></li>
+            </ul>
+        </div>
+        </div>
+        </div>
+  <footer class="site-footer">
+    <div class="footer-content">
+      <div class="footer-left">
+        <h3>Machine Master</h3>
+        <p>&copy; 2025 All rights reserved.</p>
+      </div>
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="#">Services</a>
+        <a href="aboutus.html">About Us</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="footer-social">
+        <a href="https://www.linkedin.com/in/mohit-solanki-794521306?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank">🔗 LinkedIn</a>
+        <a href="https://www.instagram.com/meetttt__25?igsh=MWNzd25iOWxsYjMwZw==" target="_blank">📸 Instagram</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

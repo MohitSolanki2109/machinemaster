@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Binary Calculator</title>
+    <link rel="shortcut icon" href="calculator.ico" type="image/x-icon">
+    <style>
+        body {
+            font-family: monospace;
+            text-align: center;
+            font-size: x-large;
+            margin: 100px;
+            background: whitesmoke;
+            color: #1e3a8a;
+        }
+    
+        .calculator {
+            background: #ffffff;
+            padding: 30px;
+            border: 1px solid #ccc;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            margin-top: 50px;
+            display: flex;
+            flex-direction: column;
+            width: 550px;
+        }
+    
+        input, select, button {
+            font-size: 22px;
+            padding: 12px;
+            margin: 15px;
+            background-color: #f4f6f8;
+            color: #333;
+            border: 1px solid #bbb;
+            border-radius: 10px;
+            transition: box-shadow 0.3s ease, transform 0.2s ease;
+        }
+    
+        input:focus, select:focus, button:hover {
+            box-shadow: 0 0 10px #5dade2;
+            outline: none;
+            transform: scale(1.02);
+        }
+    
+        #result {
+            font-size: 25px;
+            font-weight: bold;
+            color: #1abc9c;
+            margin-top: 15px;
+        }
+    
+        .how-it-works {
+            margin-top: 50px;
+            padding: 25px;
+            background: #f9f9fb;
+            border: 1px solid #dcdcdc;
+            border-radius: 10px;
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+            text-align: center;
+            width: 400px;
+            margin-left: auto;
+            margin-right: auto;
+            color: #2e3e4e;
+        }
+    
+        .how-it-works h2 {
+            font-size: 28px;
+            color: #1e3a8a;
+            margin-bottom: 10px;
+        }
+    
+        .how-it-works ol {
+            text-align: left;
+            display: inline-block;
+            margin-top: 15px;
+        }
+        .how-it-works p {
+            font-size: 24px !important;
+        }
+
+        .how-it-works li {
+            font-size: 18px;
+            margin: 10px 0;
+        }
+    
+        .content {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            gap: 50px;
+        }
+    </style>
+</head>
+<body>  
+<div class="content">
+    <div class="calculator">
+        <h1>Binary Calculator</h1>
+        <input type="text" id="binary1" placeholder="Enter 1st Binary Number">
+        <input type="text" id="binary2" placeholder="Enter 2nd Binary Number"><br>
+        <select id="operation">
+            <option value="add">Addition (+)</option>
+            <option value="subtract">Subtraction (-)</option>
+            <option value="multiply">Multiplication (×)</option>
+            <option value="divide">Division (÷)</option>
+        </select>
+        <button onclick="calculate()">Calculate</button>
+        <p id="result"></p>
+    </div>
+    <section class="how-it-works">
+        <h2>How to Use the Binary Calculator</h2>
+        <p>Follow these simple steps to perform binary calculations:</p>
+        
+        <ol>
+            <li>Enter the first binary number in the input field.</li>
+            <li>Enter the second binary number (if needed for operations like addition or multiplication).</li>
+            <li>Select the operation you want to perform (Addition, Subtraction, Multiplication, Division).</li>
+            <li>Click the "Calculate" button to get the result.</li>
+            <li>The output will be displayed in both binary and decimal format.</li>
+        </ol>
+    </section>
+    
+</div>
+    <script>
+        function calculate() {
+            let bin1 = document.getElementById("binary1").value;
+            let bin2 = document.getElementById("binary2").value;
+            let operation = document.getElementById("operation").value;
+            let resultDisplay = document.getElementById("result");
+
+            // Check if input is valid binary
+            if (!/^[01]+$/.test(bin1) || !/^[01]+$/.test(bin2)) {
+                resultDisplay.textContent = "Please enter valid binary numbers!";
+                return;
+            }
+
+            let num1 = parseInt(bin1, 2);
+            let num2 = parseInt(bin2, 2);
+            let result;
+
+            switch (operation) {
+                case "add":
+                    result = num1 + num2;
+                    break;
+                case "subtract":
+                    result = num1 - num2;
+                    break;
+                case "multiply":
+                    result = num1 * num2;
+                    break;
+                case "divide":
+                    if (num2 === 0) {
+                        resultDisplay.textContent = "Cannot divide by zero!";
+                        return;
+                    }
+                    result = Math.floor(num1 / num2);
+                    break;
+                default:
+                    resultDisplay.textContent = "Invalid operation!";
+                    return;
+            }
+
+            let binaryResult = result.toString(2);
+            resultDisplay.textContent = `Result: ${binaryResult}`;
+        }
+    </script>
+
+</body>
+</html>

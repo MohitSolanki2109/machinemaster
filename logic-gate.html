@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="circuit.ico" type="image/x-icon">
+    <title>Logic Circuit Visualizer</title>
+    <style>
+        body {
+            font-family: monospace;
+            text-align: center;
+            font-size: x-large;
+            margin: 100px;
+            background: whitesmoke;
+            color: #1e3a8a;
+        }
+    
+        .content {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            gap: 50px;
+        }
+    
+        .visualizer {
+            background: #ffffff;
+            padding: 30px;
+            border: 1px solid #ccc;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            width: 550px;
+        }
+    
+        select, button {
+            font-size: 22px;
+            padding: 12px;
+            margin: 15px;
+            background-color: #f4f6f8;
+            color: #333;
+            border: 1px solid #bbb;
+            border-radius: 10px;
+            transition: box-shadow 0.3s ease, transform 0.2s ease;
+        }
+    
+        select:focus, button:hover {
+            box-shadow: 0 0 10px #5dade2;
+            outline: none;
+            transform: scale(1.02);
+        }
+    
+        .image-container {
+            width: 500px;
+            height: 300px;
+            background: #f9f9fb;
+            border: 1px solid #dcdcdc;
+            border-radius: 10px;
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+            margin-top: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    
+        .image-container img {
+            max-width: 100%;
+            max-height: 100%;
+            border-radius: 6px;
+        }
+    
+        .how-it-works {
+            padding: 25px;
+            background: #f9f9fb;
+            border: 1px solid #dcdcdc;
+            border-radius: 10px;
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+            width: 550px;
+            font-size: 22px;
+            color: #2e3e4e;
+        }
+        ol
+        {
+            text-align: left;
+        }
+    
+        @media (max-width: 768px) {
+            .content {
+                flex-direction: column;
+                align-items: center;
+            }
+    
+            .visualizer, .how-it-works {
+                width: 90%;
+                margin-top: 20px;
+            }
+        }
+    </style>
+    
+    <script>
+        function visualizeGate() {
+            let gateType = document.getElementById("gateType").value;
+            let image = document.getElementById("gateImage");
+            let images = {
+                "AND": "and_gate.png",
+                "OR": "or_gate.png",
+                "NOT": "not_gate.png",
+                "XOR": "xor_gate.png",
+                "NAND": "nand_gate.png",
+                "XNOR": "xnor_gate.png",
+                "NOR": "nor_gate.png"
+            };
+            image.src = images[gateType];
+            image.alt = gateType + " Gate";
+        }
+    </script>
+</head>
+<body>
+    <h1>Logic Circuit Visualizer</h1>
+    <div class="content">
+        <div class="visualizer">
+            <h2>Select Logic Gate</h2>
+            <select id="gateType">
+                <option value="">--Select Gate--</option>
+                <option value="AND">AND Gate</option>
+                <option value="OR">OR Gate</option>
+                <option value="NOT">NOT Gate</option>
+                <option value="NAND">NAND Gate</option>
+                <option value="NOR">NOR Gate</option>
+                <option value="XOR">XOR Gate</option>
+                <option value="XNOR">XNOR Gate</option>
+            </select>
+            <button onclick="visualizeGate()">Visualize</button>
+            <div class="image-container">
+                <img id="gateImage" src="logicgates.png" alt="Logic Gate Visualization">
+            </div>
+        </div>
+        <div class="how-it-works">
+            <h2>How to Use Logic Gate Visualizer</h2>
+                    <p>Follow these simple steps to convert between different number systems:</p>
+            <ol>
+                <li>Select a logic gate from the dropdown.</li>
+                <li>Click the "Visualize" button.</li>
+                <li>The corresponding logic gate diagram will be displayed.</li>
+                <li>Use this tool to understand how different gates function.</li>
+            </ol>
+        </div>
+    </div>
+</body>
+</html>
+ 
